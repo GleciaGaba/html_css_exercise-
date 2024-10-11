@@ -14,10 +14,13 @@
 //population de pays de votre choix (Vous pouvez prendre les même que pour
 //la fonction précédente).
 
+/**
+ * It returns pourcentagen of mondial population
+ * @param {Number} population
+ * @returns Number
+ */
 const percentageOfWorld1 = function (population) {
-  let percent = (population / 7900) * 100;
-  let result = Math.ceil(percent);
-  return result;
+  return (population / 7900) * 100;
 };
 
 console.log(
@@ -25,3 +28,20 @@ console.log(
   percentageOfWorld1(65),
   percentageOfWorld1(11)
 );
+
+//Créez une fonction nommée « describePopulation ».
+//Utilisez la fonction que vous préférerez. Cette fonction a 2
+//paramètres « country » et « population », et elle retourne
+//une string comme ceci : « China has 1441 million people,
+//so it's about 18.2% of the world population. »
+//Pour calculer le pourcentage utilisez la fonction
+//« percentageOfWorld1 » crée auparavant.
+//Appelez « describePopulation » avec les données de 3 pays
+//de votre choix.
+
+const describePopulation = (country, population) => {
+  const percent = percentageOfWorld1(population);
+  return `${country} has ${population} million people, so it's about ${percent}% of the world population.`;
+};
+
+console.log(describePopulation("Brazil", 200));
