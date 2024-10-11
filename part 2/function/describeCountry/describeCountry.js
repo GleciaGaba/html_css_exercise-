@@ -14,7 +14,7 @@ function describeCountry(country, population, capitalCity) {
 
 let france = describeCountry("France", 65, "Paris");
 let brazil = describeCountry("Brazil", 200, "Brasilia");
-let portugal = describeCountry("Portugal", 11, "Lisboa");
+let portugal = describeCountry("Portugal", 11, "Lisbone");
 
 console.log(france);
 console.log(brazil);
