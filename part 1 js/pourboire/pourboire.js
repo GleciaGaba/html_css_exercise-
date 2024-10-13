@@ -1,48 +1,25 @@
-//# Fundamentals - Part1 #4
-//
-//🚀 À vos codes !
-//
-//Steven a besoin d'un calculateur de pourboire très simple pour chaque fois qu'il va manger au restaurant.
-//Dans son pays, il est habituel de donner un pourboire de 15 % si la valeur de la facture est entre 50 et 300.
-//Si la valeur est différente, le pourboire est de 20 %.
-//
-//Vos tâches :
-//
-//1. Calculez le pourboire en fonction de la valeur de la facture. Créez une variable appelée "tip" pour cela.
-//Il n'est pas autorisé d'utiliser une déclaration "if...else" (si cela vous est plus facile,
-//vous pouvez commencer par une déclaration "if...else", puis essayer de la convertir en opérateur ternaire).
-//
-//2. Affichez une chaîne de caractères dans la console contenant la valeur de la facture,
-//le pourboire et la valeur finale (facture + pourboire).
-//
-//# Exemple :
-//
-//La facture était de 275, le pourboire était de 41,25, et la valeur totale était de 316,25.
-//(The bill was 275, the tip was 41.25, and the total value was 316.25.)
-//
-//# Remarque :
-//
-//Utilisez les valeurs des variables de facture et de pourboire pour construire cette chaîne de caractères.
-//Ne les encodez pas en dur 🙂
-//
-//# DONNÉES DE TEST :
-//
-//Testez avec différentes valeurs de facture : 275, 40 et 430.
+// Gestion de la soumission du formulaire
+document.getElementById("tipForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Empêche le rechargement de la page
 
-let bill = Number(prompt("Type your bill coust: "));
-let tip = bill > 50 && bill < 300 ? bill * 0.15 : bill * 0.2;
+  // Récupération du montant de la facture
+  let bill = parseFloat(document.getElementById("bill").value);
 
-console.log(
-  `Your bill is ${bill} dollars, your tip cost $${tip} and the total price is ${
-    bill + tip
-  }`
-);
+  // Calcul du pourboire
+  let tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 
-//if(bill > 50 && bill < 300){
-//    let tip = bill * 0.15
-//    console.log(`Your bill is ${bill} dollars, your must to pay 15% of tip,${tip}`)
-//}
-//else{
-//    let tip = bill * 0.2
-//    console.log(`Your bill is ${bill} dollars, your must to pay 15% of tip,${tip}`)
-//}
+  // Affichage du résultat dans la div
+  const resultDiv = document.getElementById("result");
+  resultDiv.textContent = `La facture était de $${bill}, le pourboire est de $${tip.toFixed(
+    2
+  )}, et la valeur totale est de $${(bill + tip).toFixed(2)}.`;
+});
+
+// Gestion du bouton pour réinitialiser les données
+document.getElementById("resetButton").addEventListener("click", function () {
+  // Réinitialisation du formulaire
+  document.getElementById("tipForm").reset();
+
+  // Effacer le contenu de la div résultat
+  document.getElementById("result").textContent = "";
+});

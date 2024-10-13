@@ -1,27 +1,43 @@
-//Utilisez un switch pour log la string suivante selon le
-//« language »
-//- chinese : « MOST number of native speakers! »
-//- spanish : « 2nd place in number of native speakers »
-//- english : « 3rd place »
-//- hindi : « Number 4 »
-//- arabic : « 5th most spoken language »
-//- Pour les autres log simplement « Great language too :D »
+// Gestion de la soumission du formulaire
+document
+  .getElementById("languageForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Empêche le rechargement de la page
 
-language = prompt("Write your language: ");
+    // Récupération de la langue sélectionnée
+    const selectedLanguage = document.querySelector(
+      'input[name="language"]:checked'
+    ).value;
 
-switch (language) {
-  case "chinese":
-    console.log("MOST number of native speakers!");
-    break;
-  case "spanish":
-    console.log("2nd place in number of native speakers");
-    break;
-  case "english":
-    console.log("3rd place");
-    break;
-  case "arabic":
-    console.log("5th most spoken language");
-    break;
-  default:
-    console.log("Great language too :D");
-}
+    const resultDiv = document.getElementById("result");
+
+    // Utilisation d'un switch pour afficher le message approprié
+    switch (selectedLanguage) {
+      case "chinese":
+        resultDiv.textContent = "MOST number of native speakers!";
+        break;
+      case "spanish":
+        resultDiv.textContent = "2nd place in number of native speakers";
+        break;
+      case "english":
+        resultDiv.textContent = "3rd place";
+        break;
+      case "hindi":
+        resultDiv.textContent = "Number 4";
+        break;
+      case "arabic":
+        resultDiv.textContent = "5th most spoken language";
+        break;
+      default:
+        resultDiv.textContent = "Great language too :D";
+    }
+  });
+
+// Gestion du bouton pour réinitialiser le formulaire
+document.getElementById("resetButton").addEventListener("click", function () {
+  // Réinitialiser le formulaire
+  document.getElementById("languageForm").reset();
+
+  // Effacer le contenu de la div de résultat
+  document.getElementById("result").textContent = "";
+});

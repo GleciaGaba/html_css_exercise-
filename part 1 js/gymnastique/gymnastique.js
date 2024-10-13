@@ -1,38 +1,47 @@
-//Il y a deux équipes de gymnastique : les Dauphins et les Koalas. Elles se sont affrontées trois fois.
-//Le gagnant avec le score moyen le plus élevé remporte un trophée !
-//
-//🚀 À vos codes !
-//
-//Vos tâches :
-//
-//1. Calculez le score moyen pour chaque équipe en utilisant les données de test fournies ci-dessous.
-//Le score moyen des Dauphins doit être assigné à la variable scoreDolphins, et le score moyen des Koalas doit être assigné à la variable scoreKoalas.
-//
-//2. Comparez les scores moyens des équipes pour déterminer le gagnant de la compétition, et affichez dans la console :
-//
-//"Dolphins won the trophy" en cas de victoire des Dauphins,
-//ou "Les équipes sont à égalité" en cas de match nul.
-//
-//# DONNÉES DE TEST :
-//
-//Les Dauphins ont obtenu les scores suivants : 96, 108 et 89. Les Koalas ont obtenu les scores suivants : 88, 91 et 110.
-
-//Calculez le score moyen pour chaque équipe
-//Le score moyen des Dauphins doit être assigné à la variable scoreDolphins
-//le score moyen des Koalas doit être assigné à la variable
-//Comparez les scores moyens des équipes pour déterminer le gagnant de la compétition
-
+// Fonction pour calculer le score moyen
 function match(first, second, third) {
   let sum = first + second + third;
   let div = sum / 3;
   return div;
 }
 
-let scoreKoalas = match(100, 30, 80);
-let scoreDolphins = match(120, 60, 90);
+// Gestion de la soumission du formulaire
+document
+  .getElementById("scoresForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Empêche le rechargement de la page
 
-if (scoreDolphins > scoreKoalas) {
-  console.log("scoreDolphins are the winners!");
-} else {
-  console.log("scoreKoalas are the winners!");
-}
+    // Récupération des scores des Dauphins
+    let dolphin1 = parseInt(document.getElementById("dolphin1").value);
+    let dolphin2 = parseInt(document.getElementById("dolphin2").value);
+    let dolphin3 = parseInt(document.getElementById("dolphin3").value);
+
+    // Récupération des scores des Koalas
+    let koala1 = parseInt(document.getElementById("koala1").value);
+    let koala2 = parseInt(document.getElementById("koala2").value);
+    let koala3 = parseInt(document.getElementById("koala3").value);
+
+    // Calcul des scores moyens
+    let scoreDolphins = match(dolphin1, dolphin2, dolphin3);
+    let scoreKoalas = match(koala1, koala2, koala3);
+
+    // Affichage des résultats
+    const resultDiv = document.getElementById("result");
+
+    if (scoreDolphins > scoreKoalas) {
+      resultDiv.textContent = "Les Dauphins ont remporté le trophée!";
+    } else if (scoreDolphins < scoreKoalas) {
+      resultDiv.textContent = "Les Koalas ont remporté le trophée!";
+    } else {
+      resultDiv.textContent = "Les équipes sont à égalité.";
+    }
+  });
+
+// Gestion du bouton pour réinitialiser les données
+document.getElementById("resetButton").addEventListener("click", function () {
+  // Réinitialisation des champs du formulaire
+  document.getElementById("scoresForm").reset();
+
+  // Effacement du résultat affiché
+  document.getElementById("result").textContent = "";
+});

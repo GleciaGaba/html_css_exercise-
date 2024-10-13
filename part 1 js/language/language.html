@@ -1,15 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World!!!!!!!!</h1>
-    <h2 class="title"></h2>
-    
-<script src="language.js"></script>
-</body>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choisissez une Langue</title>
+    <link rel="stylesheet" href="language.css" />
+    <!-- Lien vers le fichier CSS -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Choisissez votre langue</h1>
+
+      <!-- Formulaire avec boutons radio pour choisir la langue -->
+      <form id="languageForm">
+        <label>
+          <input type="radio" name="language" value="chinese" required />
+          Chinois </label
+        ><br />
+
+        <label>
+          <input type="radio" name="language" value="spanish" />
+          Espagnol </label
+        ><br />
+
+        <label>
+          <input type="radio" name="language" value="english" /> Anglais </label
+        ><br />
+
+        <label>
+          <input type="radio" name="language" value="hindi" /> Hindi </label
+        ><br />
+
+        <label>
+          <input type="radio" name="language" value="arabic" /> Arabe </label
+        ><br />
+
+        <label>
+          <input type="radio" name="language" value="other" /> Autre </label
+        ><br />
+
+        <!-- Boutons pour soumettre et réinitialiser le formulaire -->
+        <button type="submit">Voir le résultat</button>
+        <button type="button" id="resetButton">Effacer les données</button>
+      </form>
+
+      <!-- Zone pour afficher le résultat -->
+      <div class="result" id="result"></div>
+    </div>
+
+    <script src="language.js"></script>
+    <!-- Lien vers le fichier JS externe -->
+  </body>
 </html>

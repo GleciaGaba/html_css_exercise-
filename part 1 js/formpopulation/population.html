@@ -3,44 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Population Checker</title>
+    <title>Page d'accueil</title>
     <link rel="stylesheet" href="population.css" />
     <!-- Lien vers le fichier CSS -->
   </head>
   <body>
     <div class="container">
-      <h1>Vérificateur de Population</h1>
-
-      <!-- Formulaire pour entrer le pays et la population -->
+      <h1>Formulaire de Population</h1>
       <form id="populationForm">
-        <label for="country">Nom du pays :</label>
+        <label for="country">Pays:</label>
         <input
           type="text"
           id="country"
           name="country"
-          placeholder="Entrez le nom du pays"
+          placeholder="Entrez un pays"
           required
-        /><br />
+        />
 
-        <label for="population">Population :</label>
+        <label for="continent">Continent:</label>
+        <input
+          type="text"
+          id="continent"
+          name="continent"
+          placeholder="Entrez un continent"
+          required
+        />
+
+        <label for="population">Population (en millions):</label>
         <input
           type="number"
           id="population"
           name="population"
           placeholder="Entrez la population"
           required
-        /><br />
+        />
 
-        <!-- Boutons pour soumettre et réinitialiser -->
-        <button type="submit">Vérifier</button>
+        <input type="submit" value="Soumettre" />
         <button type="button" id="resetButton">Effacer</button>
+        <!-- Bouton pour effacer -->
       </form>
 
-      <!-- Zone pour afficher le résultat -->
+      <!-- Zone de sortie des résultats -->
       <div class="result" id="result"></div>
     </div>
 
-    <script src="population.js"></script>
     <!-- Lien vers le fichier JS externe -->
+    <script src="population.js"></script>
   </body>
 </html>

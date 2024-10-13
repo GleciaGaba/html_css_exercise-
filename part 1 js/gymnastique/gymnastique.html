@@ -1,24 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World!!!!!!!!</h1>
-    <h2 class="title"></h2>
-    <ul><li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li></ul>
-<script src="gymnastique.js"></script>
-</body>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compétition de Gymnastique</title>
+    <link rel="stylesheet" href="gymnastique.css" />
+    <!-- Lien vers le fichier CSS -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Compétition de Gymnastique</h1>
+      <p>Entrez les scores pour chaque match :</p>
+
+      <!-- Formulaire pour entrer les points -->
+      <form id="scoresForm">
+        <h2>Dauphins</h2>
+        <label for="dolphin1">Match 1 :</label>
+        <input type="number" id="dolphin1" name="dolphin1" required /><br />
+
+        <label for="dolphin2">Match 2 :</label>
+        <input type="number" id="dolphin2" name="dolphin2" required /><br />
+
+        <label for="dolphin3">Match 3 :</label>
+        <input type="number" id="dolphin3" name="dolphin3" required /><br />
+
+        <h2>Koalas</h2>
+        <label for="koala1">Match 1 :</label>
+        <input type="number" id="koala1" name="koala1" required /><br />
+
+        <label for="koala2">Match 2 :</label>
+        <input type="number" id="koala2" name="koala2" required /><br />
+
+        <label for="koala3">Match 3 :</label>
+        <input type="number" id="koala3" name="koala3" required /><br />
+
+        <!-- Boutons pour soumettre et réinitialiser le formulaire -->
+        <button type="submit">Calculer le gagnant</button>
+        <button type="button" id="resetButton">Effacer les données</button>
+      </form>
+
+      <!-- Zone pour afficher les résultats -->
+      <div class="result" id="result"></div>
+    </div>
+
+    <script src="gymnastique.js"></script>
+    <!-- Lien vers le fichier JS externe -->
+  </body>
 </html>

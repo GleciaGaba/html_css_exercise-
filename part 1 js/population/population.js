@@ -1,18 +1,28 @@
-//Si la population de votre pays est plus grande que 33
-//millions, utilisez une ternary operator pour log une string
-//comme celle-ci « Portugal’s population is above
-//average. » (La population du Portugal est au dessus de la
-//moyenne.) Sinon loggez « Portugal’s population is below
-//average. » (La population du Portugal est en dessous de la
-//moyenne.) (Notez qu’un seul mot change dans cette
-//phrase).
-//Après avoir regardé le résultat, change la population à 13
-//millions et ensuite à 130 et observez le résultat. Remettez
-//ensuite les valeur de base à la variable.
+// Gestion de la soumission du formulaire
+document
+  .getElementById("populationForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Empêche le rechargement de la page
 
-country = prompt("What's your country? ");
-population = prompt("What the population of your country? ");
+    // Récupération du nom du pays et de la population
+    let country = document.getElementById("country").value;
+    let population = Number(document.getElementById("population").value);
 
-console.log(
-  `${country}'spopulation is ${population > 33 ? "above" : "below"} avarege`
-);
+    // Utilisation de l'opérateur ternaire pour vérifier si la population est au-dessus ou en dessous de la moyenne
+    let resultMessage = `${country}'s population is ${
+      population > 33 ? "above" : "below"
+    } average.`;
+
+    // Affichage du résultat dans la div
+    const resultDiv = document.getElementById("result");
+    resultDiv.textContent = resultMessage;
+  });
+
+// Gestion du bouton pour réinitialiser les données
+document.getElementById("resetButton").addEventListener("click", function () {
+  // Réinitialisation du formulaire
+  document.getElementById("populationForm").reset();
+
+  // Effacement du contenu de la div résultat
+  document.getElementById("result").textContent = "";
+});
