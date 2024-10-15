@@ -23,31 +23,36 @@
 
 let mark = {
   fullName: "Mark Miller",
-  masse: 78,
-  taille: 169,
+  weight: 78,
+  height: 1.69,
   calcBMI: function () {
-    this.imc = weight / (height * height);
+    this.imc = this.weight / (this.height * this.height);
     return this.imc;
   },
 };
 let john = {
   fullName: "John Smith",
-  masse: 92,
-  taille: 195,
+  weight: 92,
+  height: 1.95,
   calcBMI: function () {
-    this.imc = weight / (height * height);
+    this.imc = this.weight / (this.height * this.height);
     return this.imc;
   },
 };
 
 if (mark.calcBMI() > john.calcBMI()) {
   console.log(
-    `L'IMC de John Smith (28,3) est supérieur à celui de Mark Miller (23,9) !`
+    `L'IMC de Mark Miller ${mark.calcBMI(
+      this.imc
+    )} est supérieur à celui de John Smith ${john.calcBMI(this.imc)}} !`
+  );
+} else {
+  console.log(
+    `L'IMC de John Smith ${john.calcBMI(
+      this.imc
+    )} est supérieur à celui de Mark Miller ${mark.calcBMI(this.imc)} !`
   );
 }
-console.log(
-  `L'IMC de John Smith (28,3) est supérieur à celui de Mark Miller (23,9) !`
-);
 
 //
 //3. Affichez dans la console qui a le plus grand IMC, avec le nom complet et l'IMC respectif. Exemple :
